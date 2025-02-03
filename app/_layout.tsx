@@ -1,39 +1,39 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { useEffect } from "react"
+import { useFonts } from "expo-font"
+import { SplashScreen, Stack } from "expo-router"
+import * as Font from "expo-font"
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+// Assuming your fonts are in the assets/fonts directory
+const customFonts = {
+  "BR Firma": require("../assets/fonts/br-firma/BR Firma Regular.otf"),
+  "BR Firma Medium": require("../assets/fonts/br-firma/BR Firma Medium.otf"),
+  "BR Firma Bold": require("../assets/fonts/br-firma/BR Firma Bold.otf"),
+  "SF-UI Light": require("../assets/fonts/sf-ui/sf-ui-display-light.otf"),
+}
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+export default function Layout() {
+  const [fontsLoaded] = useFonts(customFonts)
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    async function prepare() {
+      try {
+        await Font.loadAsync(customFonts)
+      } catch (e) {
+        console.warn(e)
+      } finally {
+        if (fontsLoaded) {
+          SplashScreen.hideAsync()
+        }
+      }
     }
-  }, [loaded]);
 
-  if (!loaded) {
-    return null;
+    prepare()
+  }, [fontsLoaded])
+
+  if (!fontsLoaded) {
+    return null
   }
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+  return <Stack screenOptions={{ headerShown: false }} />
 }
+
