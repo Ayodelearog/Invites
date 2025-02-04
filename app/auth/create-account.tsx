@@ -161,8 +161,14 @@ export default function CreateAccountScreen() {
 				<View style={styles.footer}>
 					<Button
 						label="Sign Up"
+						
+						textColor={theme.colors.white}
+						backgroundColor={theme.colors.state.info}
+						variant="primary"
+						pressedBackgroundColor="#EAF1FF"
+						pressedTextColor="#193E87"
 						onPress={handleCreateAccount}
-						style={styles.button}
+					
 					/>
 
 					<View style={styles.loginContainer}>
@@ -210,7 +216,7 @@ const styles = StyleSheet.create({
 		height: 594,
 		position: "absolute",
 		right: 0,
-		bottom: 0,
+		bottom: -190,
 	},
 	header: {
 		marginTop: theme.spacing.xl,
@@ -237,7 +243,7 @@ const styles = StyleSheet.create({
 		marginBottom: theme.spacing.md,
 	},
 	loginContainer: {
-		marginTop: 51,
+		marginTop: 31,
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",

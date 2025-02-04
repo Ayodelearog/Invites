@@ -7,7 +7,7 @@ import {
 	ScrollView,
 	Image,
 } from "react-native";
-import CheckBox from "@react-native-community/checkbox";
+import CheckBox from "expo-checkbox";
 import { useRouter } from "expo-router";
 import { Text } from "@/components/Text";
 import { Input } from "@/components/Input";
@@ -110,8 +110,10 @@ export default function LoginScreen() {
 								style={{ flexDirection: "row", alignItems: "center", gap: 8 }}
 							>
 								<CheckBox
-									value={rememberMe} // Use state to track checkbox
+									value={rememberMe} 
+									color={rememberMe ? theme.colors.state.success : "#CBCCCD"} // Change color
 									onValueChange={() => setRememberMe(!rememberMe)} // Toggle state
+									style={{ width: 16, height: 16, borderRadius: 4, borderWidth: 1.2 }} // Change size	
 								/>
 								<Text
 									style={{
@@ -145,7 +147,11 @@ export default function LoginScreen() {
 					<Button
 						label="Continue"
 						onPress={handleLogin}
-						style={styles.button}
+						variant="primary"
+						textColor={theme.colors.white}
+						backgroundColor={theme.colors.state.info}
+						pressedBackgroundColor="#EAF1FF"
+						pressedTextColor="#193E87"
 					/>
 
 					<View style={styles.loginContainer}>
@@ -206,7 +212,7 @@ const styles = StyleSheet.create({
 		height: 594,
 		position: "absolute",
 		right: 0,
-		bottom: 0,
+		bottom: -190,
 	},
 	header: {
 		marginTop: theme.spacing.xl,

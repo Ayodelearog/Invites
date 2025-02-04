@@ -20,11 +20,13 @@ export default function LoginScreen() {
 
 	const router = useRouter();
 	const [formData, setFormData] = useState({
-		email: "",
+		password: "",
+		confirmPassword: "",
 	});
 
 	const [errors, setErrors] = useState({
-		email: "",
+		password: "",
+		confirmPassword: "",
 	});
 
 	// State for "Remember me" checkbox
@@ -78,25 +80,39 @@ export default function LoginScreen() {
 
 				<View style={styles.form}>
 					<Input
-						placeholder="Email"
-						keyboardType="email-address"
-						autoCapitalize="none"
-						value={formData.email}
-						onChangeText={(text) => setFormData({ ...formData, email: text })}
-						error={errors.email}
-						icon={require("@/assets/images/email-icon.png")}
+						placeholder="Input Password"
+						label="New Password"
+						// secureTextEntry
+						value={formData.password}
+						onChangeText={(text) =>
+							setFormData({ ...formData, password: text })
+						}
+						error={errors.password}
+						icon={require("@/assets/images/key.png")}
+						secure
+					/>
+					<Input
+						placeholder="Input Password"
+						label="Confirm Password"
+						// secureTextEntry
+						value={formData.confirmPassword}
+						onChangeText={(text) =>
+							setFormData({ ...formData, confirmPassword: text })
+						}
+						error={errors.password}
+						icon={require("@/assets/images/key.png")}
+						secure
 					/>
 				</View>
 
 				<View style={styles.footer}>
 					<Button
 						label="Submit"
+						textColor="#193E87"
+						backgroundColor="#EAF1FF"
 						variant="primary"
-						textColor={theme.colors.white}
-						backgroundColor={theme.colors.state.info}
-						pressedBackgroundColor="#EAF1FF"
-						pressedTextColor="#193E87"
-						
+						pressedBackgroundColor={theme.colors.state.info}
+						pressedTextColor={theme.colors.white}
 						onPress={handleForgotPassword}
 					/>
 				</View>
@@ -135,8 +151,9 @@ const styles = StyleSheet.create({
 		width: 594,
 		height: 594,
 		position: "absolute",
-		right: 0,
-		bottom: -190,
+		left: 0,
+		bottom: -260,
+		transform: [{ rotate: "230deg" }],
 	},
 	header: {
 		marginTop: theme.spacing.md,
@@ -159,6 +176,9 @@ const styles = StyleSheet.create({
 	},
 	// button: {
 	// 	marginBottom: theme.spacing.md,
+	//     backgroundColor: "#EAF1FF",
+	//     color: "#193E87"
+
 	// },
 	backButton: {
 		padding: 10,

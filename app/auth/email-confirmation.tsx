@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
 	View,
 	StyleSheet,
@@ -19,22 +19,17 @@ export default function LoginScreen() {
 	const leftArrow = require("@/assets/images/arrow-left.png");
 
 	const router = useRouter();
-	const [formData, setFormData] = useState({
-		email: "",
-	});
 
-	const [errors, setErrors] = useState({
-		email: "",
-	});
 
-	// State for "Remember me" checkbox
-	const [rememberMe, setRememberMe] = useState(false);
 
-	const handleForgotPassword = () => {
-		// Add login logic here
-		// If login is successful, navigate to the main app
-		router.push("/auth/email-confirmation");
-	};
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			router.push("/auth/login"); 
+		}, 3500);
+
+		return () => clearTimeout(timeout); // Cleanup timeout
+	}, []);
 
 	return (
 		<View
@@ -70,36 +65,17 @@ export default function LoginScreen() {
 					/>
 				</Pressable>
 
-				<View style={styles.header}>
-					<Text variant="h4" style={styles.title}>
-						Forgot Password?
-					</Text>
-				</View>
-
-				<View style={styles.form}>
-					<Input
-						placeholder="Email"
-						keyboardType="email-address"
-						autoCapitalize="none"
-						value={formData.email}
-						onChangeText={(text) => setFormData({ ...formData, email: text })}
-						error={errors.email}
-						icon={require("@/assets/images/email-icon.png")}
+				<View style={{width: "100%", flexDirection: "row", justifyContent: "center", marginTop: 46 }}>
+					<Image
+						source={require("@/assets/images/email-success.gif")} // Load GIF
+						style={styles.gif}
+						resizeMode="contain"
 					/>
 				</View>
 
-				<View style={styles.footer}>
-					<Button
-						label="Submit"
-						variant="primary"
-						textColor={theme.colors.white}
-						backgroundColor={theme.colors.state.info}
-						pressedBackgroundColor="#EAF1FF"
-						pressedTextColor="#193E87"
-						
-						onPress={handleForgotPassword}
-					/>
-				</View>
+				<Text style={styles.paragraph}>
+					An email has been sent to you. {"\n"}Please check and follow the instructions.
+				</Text>
 			</ScrollView>
 		</View>
 	);
@@ -135,31 +111,25 @@ const styles = StyleSheet.create({
 		width: 594,
 		height: 594,
 		position: "absolute",
-		right: 0,
-		bottom: -190,
+		left: 0,
+		bottom: -260,
+        transform: [{ rotate: "230deg" }],
 	},
 	header: {
 		marginTop: theme.spacing.md,
 	},
-	title: {
+	paragraph: {
+        marginTop: 67,
 		marginBottom: 68,
-		fontWeight: "bold",
-		fontSize: 24,
-		color: "#282829",
+		fontWeight: "medium",
+		fontSize: 14,
+		color: theme.colors.black[1],
+        width: "100%",
+        textAlign: "center",
+        lineHeight: 20,
+        
 	},
-	subtitle: {
-		marginBottom: theme.spacing.lg,
-	},
-	form: {
-		flexDirection: "column",
-		gap: 22,
-	},
-	footer: {
-		marginTop: 40,
-	},
-	// button: {
-	// 	marginBottom: theme.spacing.md,
-	// },
+
 	backButton: {
 		padding: 10,
 		borderRadius: 100,
@@ -172,7 +142,12 @@ const styles = StyleSheet.create({
 	},
 
 	backIcon: {
-		width: 18, // Adjust based on your design
-		height: 18, // Adjust based on your design
+		width: 18, 
+		height: 18, 
+	},
+    gif: {
+		width: 150,
+		height: 150,
+		
 	},
 });
