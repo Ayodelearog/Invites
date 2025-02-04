@@ -6,7 +6,6 @@ import {
   ViewStyle,
   TextStyle,
   TouchableOpacityProps,
-  Animated,
 } from 'react-native';
 import { theme } from './theme';
 
@@ -32,74 +31,33 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const [isPressed, setIsPressed] = useState(false);
-  const [bgColor, setBgColor] = useState(new Animated.Value(0)); // For background color animation
-  const [txtColor, setTxtColor] = useState(new Animated.Value(0)); // For text color animation
-
-  // Animated background color and text color interpolation
-  const animatedBgColor = bgColor.interpolate({
-    inputRange: [0, 1],
-    outputRange: [
-      backgroundColor || theme.colors.state.info, // Normal background color
-      pressedBackgroundColor || backgroundColor || theme.colors.state.info, // Pressed background color
-    ],
-  });
-
-  const animatedTxtColor = txtColor.interpolate({
-    inputRange: [0, 1],
-    outputRange: [
-      textColor || theme.colors.white, // Normal text color
-      pressedTextColor || textColor || theme.colors.white, // Pressed text color
-    ],
-  });
 
   // Dynamic styles for background and text color
   const buttonStyles: ViewStyle[] = [
     styles.base,
     styles[variant],
     styles[size],
-    { backgroundColor: animatedBgColor as unknown as string }, // Cast to string
-    style && style, // Only include style if it's defined
-  ].filter(Boolean); // Remove undefined values
+    backgroundColor ? { backgroundColor } : {},
+    style as ViewStyle,
+    isPressed ? {
+      backgroundColor: pressedBackgroundColor || backgroundColor, // Apply pressed background color
+    } : {},
+  ];
 
   const textStyles: TextStyle[] = [
     styles.text,
     styles[`${variant}Text`],
-    { color: animatedTxtColor as unknown as string }, // Cast to string
+    textColor ? { color: textColor } : {},
+    isPressed ? {
+      color: pressedTextColor || textColor, // Apply pressed text color
+    } : {}
   ];
-
-  const onPressInHandler = () => {
-    setIsPressed(true);
-    Animated.timing(bgColor, {
-      toValue: 1,
-      duration: 200, // Duration of the color change animation
-      useNativeDriver: false, // Set to false for non-layout properties
-    }).start();
-    Animated.timing(txtColor, {
-      toValue: 1,
-      duration: 200, // Duration of the color change animation
-      useNativeDriver: false, // Set to false for non-layout properties
-    }).start();
-  };
-
-  const onPressOutHandler = () => {
-    setIsPressed(false);
-    Animated.timing(bgColor, {
-      toValue: 0,
-      duration: 200, // Duration of the color change animation
-      useNativeDriver: false, // Set to false for non-layout properties
-    }).start();
-    Animated.timing(txtColor, {
-      toValue: 0,
-      duration: 200, // Duration of the color change animation
-      useNativeDriver: false, // Set to false for non-layout properties
-    }).start();
-  };
 
   return (
     <TouchableOpacity
       style={buttonStyles}
-      onPressIn={onPressInHandler} // When pressed
-      onPressOut={onPressOutHandler} // When released
+      onPressIn={() => setIsPressed(true)} // When pressed
+      onPressOut={() => setIsPressed(false)} // When released
       {...props}
     >
       <Text style={textStyles}>{label}</Text>
@@ -114,6 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   primary: {
+    backgroundColor: theme.colors.state.info,
     paddingHorizontal: 20,
     paddingVertical: 15,
   },

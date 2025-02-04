@@ -36,7 +36,7 @@ export default function LoginScreen() {
 	const handleLogin = () => {
 		// Add login logic here
 		// If login is successful, navigate to the main app
-		router.push("/");
+		router.push("/home");
 	};
 
 	return (

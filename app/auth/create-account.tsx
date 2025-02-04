@@ -33,7 +33,7 @@ export default function CreateAccountScreen() {
 		// Add validation logic here
 		// If validation passes, navigate to OTP verification
 		router.push({
-			pathname: "/auth/otp-verification",
+			pathname: "/auth/successful-registration",
 			params: { email: formData.email },
 		});
 	};

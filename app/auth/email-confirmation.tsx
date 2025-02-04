@@ -15,7 +15,7 @@ import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { theme } from "@/components/theme";
 
-export default function LoginScreen() {
+export default function EmailConfirmationScreen() {
 	const leftArrow = require("@/assets/images/arrow-left.png");
 
 	const router = useRouter();

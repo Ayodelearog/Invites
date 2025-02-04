@@ -15,7 +15,7 @@ import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { theme } from "@/components/theme";
 
-export default function LoginScreen() {
+export default function ResetPasswordScreen() {
 	const leftArrow = require("@/assets/images/arrow-left.png");
 
 	const router = useRouter();
@@ -74,7 +74,10 @@ export default function LoginScreen() {
 
 				<View style={styles.header}>
 					<Text variant="h4" style={styles.title}>
-						Forgot Password?
+						New Password?
+					</Text>
+					<Text variant="small" style={styles.subtitle}>
+						Create your new assword to login.
 					</Text>
 				</View>
 
@@ -157,15 +160,20 @@ const styles = StyleSheet.create({
 	},
 	header: {
 		marginTop: theme.spacing.md,
+        flexDirection: "column",
+        gap: 12,
+        marginBottom: 68,
 	},
 	title: {
-		marginBottom: 68,
+		
 		fontWeight: "bold",
 		fontSize: 24,
 		color: "#282829",
 	},
 	subtitle: {
-		marginBottom: theme.spacing.lg,
+		// marginBottom: theme.spacing.lg,
+        fontWeight: "regular",
+        color: "#97999B",
 	},
 	form: {
 		flexDirection: "column",
