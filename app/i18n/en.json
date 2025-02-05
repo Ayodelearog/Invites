@@ -1,0 +1,55 @@
+{
+    "common": {
+      "back": "Back",
+      "submit": "Submit",
+      "continue": "Continue",
+      "verifyNow": "Verify Now",
+      "signUp": "Sign Up",
+      "login": "Login",
+      "homepage": "Homepage"
+    },
+    "createAccount": {
+      "title": "Create Account",
+      "subtitle": "Please fill in the details to create your account",
+      "fullName": "Name",
+      "email": "Email",
+      "password": "Input Password",
+      "phoneNumber": "Phone",
+      "minimumChars": "Minimum of 8 characters",
+      "alreadyHaveAccount": "Already have an account?",
+      "loginLink": "Login",
+      "signUp": "Sign Up"
+    },
+    "login": {
+      "title": "Welcome Back!",
+      "email": "Email",
+      "password": "Input Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "forgot password?",
+      "dontHaveAccount": "Don't have an account?",
+      "signUpLink": "Sign Up"
+    },
+    "otpVerification": {
+      "title": "Verify Code",
+      "subtitle": "The confirmation code was sent via email",
+      "resend": "Don't get the code? Resend"
+    },
+    "resetPassword": {
+      "title": "New Password?",
+      "subtitle": "Create your new password to login.",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password?"
+    },
+    "successfulRegistration": {
+      "title": "Successfully Registered",
+      "message": "Congratulations, your account is registered"
+    },
+    "emailConfirmation": {
+      "message": "An email has been sent to you. Please check and follow the instructions."
+    }
+  }
+  
+  

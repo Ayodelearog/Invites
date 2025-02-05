@@ -1,7 +1,8 @@
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import { useFonts } from "expo-font"
 import { SplashScreen, Stack } from "expo-router"
 import * as Font from "expo-font"
+import "./i18n"
 
 // Assuming your fonts are in the assets/fonts directory
 const customFonts = {

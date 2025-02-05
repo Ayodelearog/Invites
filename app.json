@@ -1,50 +1,52 @@
 {
-	"expo": {
-		"name": "Invites",
-		"slug": "Invites",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/images/icon.png",
-		"scheme": "invites",
-		"userInterfaceStyle": "automatic",
-		"newArchEnabled": true,
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/images/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
-			}
-		},
-		"web": {
-			"bundler": "metro",
-			"output": "static",
-			"favicon": "./assets/images/favicon.png",
-
-			"build": {
-				"babel": {
-					"include": ["@expo/vector-icons"]
-				}
-			},
-			"template": {
-				"filename": "web/index.html"
-			}
-		},
-		"plugins": [
-			"expo-router",
-			[
-				"expo-splash-screen",
-				{
-					"image": "./assets/images/splash-icon.png",
-					"imageWidth": 200,
-					"resizeMode": "cover",
-					"backgroundColor": "#ffffff"
-				}
-			]
-		],
-		"experiments": {
-			"typedRoutes": true
-		}
-	}
+  "expo": {
+    "name": "Invites",
+    "slug": "Invites",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "invites",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "build": {
+        "babel": {
+          "include": [
+            "@expo/vector-icons"
+          ]
+        }
+      },
+      "template": {
+        "filename": "web/index.html"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "cover",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-localization"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
 }

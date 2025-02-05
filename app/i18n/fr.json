@@ -1,0 +1,55 @@
+{
+    "common": {
+      "back": "Retour",
+      "submit": "Soumettre",
+      "continue": "Continuer",
+      "verifyNow": "Vérifier maintenant",
+      "signUp": "S'inscrire",
+      "login": "Se connecter",
+      "homepage": "Page d'accueil"
+    },
+    "createAccount": {
+      "title": "Créer un compte",
+      "subtitle": "Veuillez remplir les détails pour créer votre compte",
+      "fullName": "Nom",
+      "email": "Email",
+      "password": "Saisir le mot de passe",
+      "phoneNumber": "Téléphone",
+      "minimumChars": "Minimum 8 caractères",
+      "alreadyHaveAccount": "Vous avez déjà un compte ?",
+      "loginLink": "Se connecter",
+      "signUp": "S'inscrire"
+    },
+    "login": {
+      "title": "Bienvenue !",
+      "email": "Email",
+      "password": "Saisir le mot de passe",
+      "rememberMe": "Se souvenir de moi",
+      "forgotPassword": "mot de passe oublié ?",
+      "dontHaveAccount": "Vous n'avez pas de compte ?",
+      "signUpLink": "S'inscrire"
+    },
+    "otpVerification": {
+      "title": "Vérifier le code",
+      "subtitle": "Le code de confirmation a été envoyé par email",
+      "resend": "Vous n'avez pas reçu le code ? Renvoyer"
+    },
+    "resetPassword": {
+      "title": "Nouveau mot de passe ?",
+      "subtitle": "Créez votre nouveau mot de passe pour vous connecter.",
+      "newPassword": "Nouveau mot de passe",
+      "confirmPassword": "Confirmer le mot de passe"
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié ?"
+    },
+    "successfulRegistration": {
+      "title": "Inscription réussie",
+      "message": "Félicitations, votre compte est enregistré"
+    },
+    "emailConfirmation": {
+      "message": "Un email vous a été envoyé. Veuillez vérifier et suivre les instructions."
+    }
+  }
+  
+  

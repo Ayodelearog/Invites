@@ -1,5 +1,12 @@
 import React, { useState, useRef } from "react";
-import { View, StyleSheet, TouchableOpacity, TextInput, Pressable, Image } from "react-native";
+import {
+	View,
+	StyleSheet,
+	TouchableOpacity,
+	TextInput,
+	Pressable,
+	Image,
+} from "react-native";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { Text } from "@/components/Text";
 import { Button } from "@/components/Button";
@@ -10,7 +17,7 @@ export default function OTPVerificationScreen() {
 	const { email } = useLocalSearchParams();
 	const [otp, setOtp] = useState(["", "", "", ""]);
 	const otpInputRefs = useRef<(TextInput | null)[]>([]);
-  const leftArrow = require("@/assets/images/arrow-left.png");
+	const leftArrow = require("@/assets/images/arrow-left.png");
 
 	const handleVerify = () => {
 		// Add OTP verification logic here
@@ -49,11 +56,11 @@ export default function OTPVerificationScreen() {
 
 	return (
 		<View style={styles.container}>
-      <Image
-					source={require("@/assets/images/small-ring.png")}
-					style={styles.ring}
-					resizeMode="contain"
-				/>
+			<Image
+				source={require("@/assets/images/small-ring.png")}
+				style={styles.ring}
+				resizeMode="contain"
+			/>
 			<Pressable
 				style={({ pressed }) => [
 					styles.backButton,
@@ -154,7 +161,7 @@ const styles = StyleSheet.create({
 	verifyButton: {
 		marginTop: 50,
 	},
-  backButton: {
+	backButton: {
 		padding: 10,
 		borderRadius: 100,
 		borderColor: "#CBCCCD",
@@ -169,7 +176,7 @@ const styles = StyleSheet.create({
 		width: 18, // Adjust based on your design
 		height: 18, // Adjust based on your design
 	},
-  ring: {
+	ring: {
 		width: 172,
 		height: 172,
 		position: "absolute",
